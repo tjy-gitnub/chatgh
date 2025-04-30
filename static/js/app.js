@@ -253,8 +253,8 @@ async sendToServer(userMessage) {
         
         // 构建系统提示
         let systemPrompt;
-        if(this.systemp){
-            systemPrompt=this.systemp;
+        if(systemp){
+            systemPrompt=systemp;
         }else{
             systemPrompt = this.groupMode ? 
                 GROUP_CHAT_CONFIG.systemPrompt
