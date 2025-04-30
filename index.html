@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatgh</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/jq.min.js"></script>
+    <script src="static/js/marked.min.js"></script>
+    <!-- 添加KaTeX支持 -->
+    <link rel="stylesheet" href="static/lib/katex.min.css">
+    <script src="static/lib/katex.min.js"></script>
+    <script src="static/lib/auto-render.min.js"></script>
+    <!-- 添加代码高亮支持 -->
+    <link href="static/lib/prism.min.css" rel="stylesheet" />
+    <script src="static/lib/prism.min.js"></script>
+    <!-- 添加更多语言支持 -->
+    <script src="static/lib/prism-python.min.js"></script>
+    <!-- 添加图标支持 -->
+    <link rel="stylesheet" href="static/lib/bootstrap-icons.css">
+
+    <style>
+        .error-message {
+            color: #ff4444;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: rgba(255, 68, 68, 0.1);
+            margin: 10px 0;
+        }
+    </style>
+
+    <script src="config.js"></script>
+    <script src="static/js/app.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside id="sidebar">
+            <div class="token">
+                <div>
+                    <label for="token">Github token</label>
+                    <input type="text" id="token" class="textarea" style="min-height: unset;height: 32px;margin: 0;">
+                </div>
+                <small style="margin: 5px 5px 5px 5px;">确保有 AI 模型 read 权限</small>
+            </div>
+            <div class="sidebar-section">
+                <div id="model-selector" class="list"></div>
+            </div>
+            <div class="group-chat">
+                <div class="group-header">
+                    <h2>讨论</h2>
+                    <button id="create-group" class="button">进入讨论</button>
+                </div>
+                <div id="assistant-list" class="assistant-list"></div>
+            </div>
+            <span style="margin: 10px;text-align: center; display: block;line-height: 1.3;">由星源开发<br>Developed by Starry Source</span>
+        </aside>
+        
+        <main class="main-content">
+            <header class="chat-header">
+                <div class="chat-title">
+                    <span id="current-model" class="model-label"></span>
+                    <h1>Chatgh</h1>
+                </div>
+                <button id="theme-toggle" class="button">
+                    <i class="bi bi-moon"></i>
+                </button>
+            </header>
+            
+            <div id="chat-messages" class="chat-container"></div>
+            
+            <footer class="input-container">
+                <textarea 
+                    id="message-input" 
+                    class="textarea"
+                    placeholder="输入消息... (Shift + Enter 换行，Enter 发送)"
+                ></textarea>
+                <div class="button-group">
+                    <button id="send-button" class="button primary">
+                        <i class="bi bi-send"></i>
+                        发送
+                    </button>
+                    <button id="interrupt-button" class="button" style="display: none;">
+                        <i class="bi bi-hand-index"></i>
+                        插话
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
