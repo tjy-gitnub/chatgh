@@ -14,7 +14,6 @@ const AVAILABLE_MODELS = {
     'openai/gpt-4o-mini':'GPT 4o mini',
     'meta/Llama-4-Scout-17B-16E-Instruct':'Llama 4 Scout',
     'meta/Llama-4-Maverick-17B-128E-Instruct-FP8':'Llama 4 Maverick',
-
 };
 
 const DEFAULT_MODEL = "deepseek/DeepSeek-R1";

@@ -702,14 +702,6 @@ html, body {
     transition: 200ms;
 }
 
-.think-content.collapsed .think-toggle i {
-    /* transform: rotate(0deg); */
-}
-
-.think-content:not(.collapsed) .think-toggle i {
-    /* transform: rotate(180deg); */
-}
-
 /* 群聊相关样式 */
 .group-chat {
     border-top: 1px solid var(--border-color);
@@ -751,7 +743,7 @@ html, body {
 
 .message-sender {
     font-size: 14px;
-    color: var(--primary-color);
+    color: var (--primary-color);
     margin-bottom: 4px;
     font-weight: 500;
 }
@@ -904,4 +896,103 @@ html, body {
 /* 不同角色的消息样式 */
 .message[data-role^="assistant"] .message-content {
     border-left: 2px solid var(--primary-color);
+}
+
+/* SVG 和 Mermaid 预览样式 */
+.preview-container {
+    position: relative;
+    margin: 1em 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.preview-header {
+    padding: 8px 12px;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-title {
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.preview-toggle {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 0.9em;
+    border-radius: 4px;
+}
+
+.preview-toggle:hover {
+    background: var(--hover-color);
+}
+
+.preview-content {
+    padding: 16px;
+    background: var(--card-bg);
+    overflow: auto;
+}
+
+.preview-content pre {
+    margin: 0;
+    padding: 16px;
+    background: var(--bg-color);
+}
+
+.preview-content.code-view pre {
+    display: block;
+}
+
+.preview-content.code-view .rendered {
+    display: none;
+}
+
+.preview-content:not(.code-view) pre {
+    display: none;
+}
+
+.preview-content:not(.code-view) .rendered {
+    display: block;
+}
+
+.preview-container .error {
+    color: #ff4444;
+    padding: 10px;
+    background: rgba(255, 68, 68, 0.1);
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.preview-content .rendered {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-container svg,
+.mermaid-container svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* SVG 预览容器 */
+.svg-container {
+    max-width: 100%;
+    overflow: auto;
+}
+
+/* Mermaid 图表容器 */
+.mermaid-container {
+    text-align: center;
 }
